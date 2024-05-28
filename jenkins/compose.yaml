@@ -1,0 +1,27 @@
+services:
+  app:
+    build:
+      dockerfile: app.Dockerfile
+      args:
+        # Get GID via "getent group docker" on host
+        GID_DOCKER: 998
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+      # Expose docker socket from host, so that builds can use it
+      - /usr/bin/docker:/usr/bin/docker
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Mount certs directory, so that builds can mount it to images
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    ports:
+      - 50000:50000
+    restart: always
+  proxy:
+    image: "nginx:latest"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+    ports:
+      - 9999:443
+    depends_on:
+      - app
+    restart: always
