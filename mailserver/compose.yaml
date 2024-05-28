@@ -16,12 +16,12 @@ services:
       - /home/destroflyer/mailserver/docker-data/dms/config/:/tmp/docker-mailserver/
       - /etc/localtime:/etc/localtime:ro
       - /etc/letsencrypt:/etc/letsencrypt:ro
-    restart: always
-    stop_grace_period: 1m
     healthcheck:
       test: "ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1"
       timeout: 3s
       retries: 0
+    stop_grace_period: 1m
+    restart: always
   ui:
     image: roundcube/roundcubemail:latest
     environment:

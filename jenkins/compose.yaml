@@ -22,6 +22,4 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
     ports:
       - 9999:443
-    depends_on:
-      - app
     restart: always
