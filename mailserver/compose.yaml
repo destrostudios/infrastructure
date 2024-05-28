@@ -1,3 +1,4 @@
+name: mailserver
 services:
   server:
     image: ghcr.io/docker-mailserver/docker-mailserver:latest

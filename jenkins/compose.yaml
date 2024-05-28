@@ -1,3 +1,4 @@
+name: jenkins
 services:
   app:
     build:
@@ -6,10 +7,10 @@ services:
         # Get GID via "getent group docker" on host
         GID_DOCKER: 998
     volumes:
-      - ./jenkins_home:/var/jenkins_home
+      - /home/destroflyer/jenkins/jenkins_home:/var/jenkins_home
       # Expose docker socket from host, so that builds can use it
-      - /usr/bin/docker:/usr/bin/docker
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
       # Mount certs directory, so that builds can access it outside of docker via sh
       - /etc/letsencrypt:/etc/letsencrypt:ro
     ports:
