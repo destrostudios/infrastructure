@@ -14,7 +14,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 dir ('mailserver') {
-                    sh 'docker compose build --no-cache'
                     sh 'docker compose up -d'
                 }
             }
