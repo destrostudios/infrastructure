@@ -14,13 +14,13 @@ services:
       # Mount certs directory, so that builds can access it outside of docker via sh
       - /etc/letsencrypt:/etc/letsencrypt:ro
     ports:
-      - 50000:50000
+      - "50000:50000"
     restart: always
   proxy:
-    image: "nginx:latest"
+    image: nginx:latest
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
     ports:
-      - 9999:443
+      - "9999:443"
     restart: always

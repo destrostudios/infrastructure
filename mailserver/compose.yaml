@@ -28,5 +28,12 @@ services:
     environment:
       ROUNDCUBEMAIL_DEFAULT_HOST: tls://mail.destrostudios.com
       ROUNDCUBEMAIL_SMTP_SERVER: tls://mail.destrostudios.com
+    restart: always
+  ui-proxy:
+    image: nginx:latest
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
     ports:
-      - "8000:80"
+      - "8000:443"
+    restart: always
