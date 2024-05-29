@@ -2,7 +2,6 @@ name: mailserver
 services:
   server:
     image: ghcr.io/docker-mailserver/docker-mailserver:latest
-    container_name: mailserver-server
     hostname: mail.destrostudios.com
     env_file: mailserver.env
     ports:
@@ -26,7 +25,6 @@ services:
     restart: always
   ui:
     image: roundcube/roundcubemail:latest
-    container_name: mailserver-ui
     environment:
       ROUNDCUBEMAIL_DEFAULT_HOST: tls://mail.destrostudios.com
       ROUNDCUBEMAIL_SMTP_SERVER: tls://mail.destrostudios.com
