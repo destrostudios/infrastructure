@@ -11,7 +11,7 @@ services:
       # Expose docker socket from host, so that builds can use it
       - /usr/bin/docker:/usr/bin/docker:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      # Mount certs directory, so that builds can access it outside of docker via sh
+      # Mount certificates directory, so that builds can access it via sh (outside of docker build stage)
       - /etc/letsencrypt:/etc/letsencrypt:ro
     ports:
       - "50000:50000"
