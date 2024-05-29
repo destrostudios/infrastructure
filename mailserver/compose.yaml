@@ -11,10 +11,10 @@ services:
       - "587:587" # ESMTP (explicit TLS => STARTTLS)
       - "993:993" # IMAP4 (implicit TLS)
     volumes:
-      - /home/destroflyer/mailserver/docker-data/dms/mail-data/:/var/mail/
-      - /home/destroflyer/mailserver/docker-data/dms/mail-state/:/var/mail-state/
-      - /home/destroflyer/mailserver/docker-data/dms/mail-logs/:/var/log/mail/
-      - /home/destroflyer/mailserver/docker-data/dms/config/:/tmp/docker-mailserver/
+      - /home/destroflyer/mailserver/dms/mail-data/:/var/mail/
+      - /home/destroflyer/mailserver/dms/mail-state/:/var/mail-state/
+      - /home/destroflyer/mailserver/dms/mail-logs/:/var/log/mail/
+      - /home/destroflyer/mailserver/dms/config/:/tmp/docker-mailserver/
       - /etc/localtime:/etc/localtime:ro
       - /etc/letsencrypt:/etc/letsencrypt:ro
     healthcheck:
