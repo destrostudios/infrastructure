@@ -8,11 +8,13 @@ services:
         GID_DOCKER: 998
     volumes:
       - /home/destroflyer/jenkins/jenkins_home:/var/jenkins_home
-      # Expose docker socket from host, so that builds can use it
+      # Docker socket from host, so that builds can build images and start containers on the host
       - /usr/bin/docker:/usr/bin/docker:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      # Mount certificates directory, so that builds can access it via sh (outside of docker build stage)
+      # Certificates directory, so that builds can directly access it via sh (not only indirectly by mounting again)
       - /etc/letsencrypt:/etc/letsencrypt:ro
+      # Destrostudios apps directory, so that builds can release apps
+      - /var/www/destrostudios/apps:/var/destrostudios/apps
     ports:
       - "50000:50000"
     restart: always
