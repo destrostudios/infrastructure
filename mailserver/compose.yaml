@@ -35,5 +35,5 @@ services:
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
     ports:
-      - "8000:443"
+      - "9010:443"
     restart: always
