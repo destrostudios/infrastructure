@@ -17,10 +17,10 @@ services:
       - "50000:50000"
     restart: always
   proxy:
-    image: nginx:latest
+    build:
+      dockerfile: proxy.Dockerfile
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro
-      - ./nginx/conf.d:/etc/nginx/conf.d:ro
     ports:
       - "9999:443"
     restart: always
