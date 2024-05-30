@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'docker build --tag destrostudios/phpmyadmin --file base/phpmyadmin.Dockerfile .'
+                sh 'docker build --tag destrostudios/phpmyadmin --file common/phpmyadmin.Dockerfile .'
             }
         }
     }
