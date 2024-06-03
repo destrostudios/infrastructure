@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:latest
+FROM jenkins/jenkins:2.460
 USER root
 
 # Create a docker group with the correct GID and add the jenkins user to it, so that the host docker socket is usable
