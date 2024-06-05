@@ -1,6 +1,6 @@
 name: mailserver
 services:
-  server:
+  app:
     image: mailserver/docker-mailserver:13.3.1
     hostname: mail.destrostudios.com
     env_file: mailserver.env
