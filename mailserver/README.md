@@ -8,6 +8,7 @@ Customizations of `compose.yaml`:
 - `volumes`: Add `/etc/localtime:/etc/localtime:ro`
 - `volumes`: Add `/etc/letsencrypt:/etc/letsencrypt:ro`
 - `services`: `ui` via [roundcubemail](https://github.com/roundcube/roundcubemail-docker)
+- `services`: `ui-proxy` via nginx
 
 Customizations of `mailserver.env`:
 - `SSL_TYPE` = letsencrypt
