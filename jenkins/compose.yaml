@@ -13,8 +13,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       # Certificates directory, so that builds can directly access it via sh (not only indirectly by mounting again)
       - /etc/letsencrypt:/etc/letsencrypt:ro
-      # Destrostudios apps directory, so that builds can release apps
+      # Destrostudios apps and launcher directories, so that builds can release apps
       - /var/www/destrostudios/apps:/var/destrostudios/apps
+      - /var/www/destrostudios/launcher:/var/destrostudios/launcher
     ports:
       - "50000:50000"
     restart: always
