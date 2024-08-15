@@ -8,8 +8,6 @@ services:
         GID_DOCKER: 998
     volumes:
       - /home/destroflyer/jenkins/jenkins_home:/var/jenkins_home
-      # Maven directory, so that builds can cache and share Maven dependencies
-      - /home/destroflyer/jenkins/maven:/var/maven
       # Docker socket from host, so that builds can build images and start containers on the host
       - /usr/bin/docker:/usr/bin/docker:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro

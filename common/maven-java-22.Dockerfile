@@ -1,4 +1,3 @@
 FROM maven:3.9.6-eclipse-temurin-22-alpine
-VOLUME /var/maven/.m2 /var/maven/.m2
-ENV MAVEN_CONFIG=/var/maven/.m2
-ENV MAVEN_OPTS="-Duser.home=/var/maven"
+# Jenkins runs the container with a non-root user - Without other customization, the image uses /.m2 as Maven home directory (which the non-root user can't create and write into otherwise)
+RUN mkdir /.m2 && chmod 777 /.m2
