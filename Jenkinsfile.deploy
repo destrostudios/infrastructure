@@ -14,6 +14,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'docker build --tag destrostudios/phpmyadmin --file common/phpmyadmin.Dockerfile --no-cache .'
+                sh 'docker build --tag destrostudios/maven-java-22 --file maven-java-22.Dockerfile --no-cache .'
             }
         }
     }
