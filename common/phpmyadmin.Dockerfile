@@ -1,4 +1,4 @@
-FROM phpmyadmin:5.2.1-apache
+FROM phpmyadmin:5.2.2-apache
 ENV UPLOAD_LIMIT=50M
 RUN a2enmod ssl
 RUN sed -ri -e 's,80,443,' /etc/apache2/sites-available/000-default.conf && \
