@@ -20,8 +20,9 @@ services:
       - "50000:50000"
     restart: always
   proxy:
-    build:
-      dockerfile: proxy.Dockerfile
+    image: destrostudios/https-proxy
+    environment:
+      SERVER: app:8080
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro
     ports:
