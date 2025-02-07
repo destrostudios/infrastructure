@@ -30,8 +30,10 @@ services:
       ROUNDCUBEMAIL_SMTP_SERVER: tls://mail.destrostudios.com
     restart: always
   ui-proxy:
+    image: destrostudios/https-proxy
     build:
-      dockerfile: proxy.Dockerfile
+      args:
+        SERVER: ui:80
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro
     ports:
