@@ -31,9 +31,8 @@ services:
     restart: always
   ui-proxy:
     image: destrostudios/https-proxy
-    build:
-      args:
-        SERVER: ui:80
+    environment:
+      SERVER: ui:80
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro
     ports:
