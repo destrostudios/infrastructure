@@ -13,9 +13,11 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'docker build --tag destrostudios/https-proxy --file common/https-proxy.Dockerfile --no-cache .'
-                sh 'docker build --tag destrostudios/maven-java-22 --file common/maven-java-22.Dockerfile --no-cache .'
-                sh 'docker build --tag destrostudios/phpmyadmin --file common/phpmyadmin.Dockerfile --no-cache .'
+                dir ('common') {
+                    sh 'docker build --tag destrostudios/https-proxy --file https-proxy.Dockerfile --no-cache .'
+                    sh 'docker build --tag destrostudios/maven-java-22 --file maven-java-22.Dockerfile --no-cache .'
+                    sh 'docker build --tag destrostudios/phpmyadmin --file phpmyadmin.Dockerfile --no-cache .'
+                }
             }
         }
     }
